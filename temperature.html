@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        #result {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Temperature Converter</h1>
+        <label for="celsius">Enter Temperature in Celsius:</label>
+        <input type="number" id="celsius" placeholder="Enter temperature in Celsius">
+        <button onclick="convertToFar()">Convert to Fahrenheit</button>
+        <button onclick="convertToCel()">Convert to Celsius</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function convertToFar() {
+            const celsius = parseFloat(document.getElementById("celsius").value);
+            if (!isNaN(celsius)) {
+                const fahrenheit = (celsius * 9/5) + 32;
+                document.getElementById("result").textContent = `${celsius}°C is equal to ${fahrenheit.toFixed(2)}°F`;
+            } else {
+                document.getElementById("result").textContent = "Please enter a valid number.";
+            }
+        }
+
+        function convertToCel() {
+            const fahrenheit = parseFloat(document.getElementById("celsius").value);
+            if (!isNaN(fahrenheit)) {
+                const celsius = (fahrenheit - 32) * 5/9;
+                document.getElementById("result").textContent = `${fahrenheit}°F is equal to ${celsius.toFixed(2)}°C`;
+            } else {
+                document.getElementById("result").textContent = "Please enter a valid number.";
+            }
+        }
+    </script>
+</body>
+</html>
